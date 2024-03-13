@@ -39,10 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # libs
     'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'multiselectfield',
     # apps
     'apps.applications.apps.ApplicationsConfig',
     'apps.professions.apps.ProfessionsConfig',
     'apps.cities.apps.CitiesConfig',
+    'apps.languages.apps.LanguagesConfig',
+    'apps.users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +137,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}

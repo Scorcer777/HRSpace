@@ -40,10 +40,10 @@ CONTRACT_TYPES = [
 WORKING_CONDITIONS = [
     ('VMI', 'ДМС'),
     ('fitness', 'Фитнес'),
-    ('meal_reimbursement', 'Оплата питания'),
+    ('meal_compensation', 'Оплата питания'),
     ('free_parking', 'Бесплатная парковка'),
-    ('mobile_phone_reimbursement', 'Оплата мобильной связи'),
-    ('transportation_reimbursement', 'Оплата проезда'),
+    ('mobile_phone_compensation', 'Оплата мобильной связи'),
+    ('transportation_compensation', 'Оплата проезда'),
     ('language_training', 'Языковые курсы'),
     ('professional_training', 'Профессиональные курсы'),
     ('from_age_14', 'Подходит подросткам с 14 лет'),
@@ -51,4 +51,26 @@ WORKING_CONDITIONS = [
         'for_people_with_disabilities',
         'Подходит людям с ограниченными возможностями'
     ),
+]
+
+EDUCATION_TYPES = [
+    ('not_required', 'Не имеет значения'),
+    ('higher', 'Высшее'),
+    ('vocational', 'Среднее профессиональное'),
+]
+
+EXPERIENCES = [
+    ('not_required', 'Не имеет значения'),
+    ('no_experience', 'Нет опыта'),
+    ('1-3_years', 'От 1 года до 3 лет'),
+    ('3-6_years', 'От 3 до 6 лет'),
+    ('over_6_years', 'Более 6 лет'),
+]
+
+DRIVING_SKILLS = [
+    ('B', 'Категория B, легковые автомобили'),
+    ('C', 'Категория C, грузовые автомобили'),
+    ('D', 'Категория D, автобусы'),
+    ('M', 'Категория M, мопеды'),
+    ('A', 'Категория A, мотоциклы'),
 ]
