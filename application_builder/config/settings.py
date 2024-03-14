@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.citizenships.apps.CitizenshipsConfig',
     'apps.industries.apps.IndustriesConfig',
+    'apps.payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
