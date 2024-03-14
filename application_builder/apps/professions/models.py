@@ -27,3 +27,6 @@ class ProfessionSkill(models.Model):
 
     class Meta:
         unique_together = ('profession', 'skill')
+
+    def __str__(self) -> str:
+        return self.skill.title

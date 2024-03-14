@@ -44,7 +44,10 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
 
     def get_language_skills(self, obj):
         return ', '.join(
-            language.name for language in obj.language_skills.all()
+            [
+                language_proficiency.language.name
+                for language_proficiency  in obj.language_skills.all()
+            ]
         )
 
     get_language_skills.short_description = 'Language Skills'
@@ -58,8 +61,13 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
 
     def get_core_skills(self, obj):
         return ', '.join(
-            [skill.name for skill in obj.core_skills.all()]
+            [
+                profession_skill.skill.title
+                for profession_skill in obj.core_skills.all()
+            ]
         )
+
+    get_core_skills.short_description = 'Core Skills'
 
 
 @admin.register(JobInfo)

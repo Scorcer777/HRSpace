@@ -45,7 +45,12 @@ class JobInfo(models.Model):
         blank=True,
         null=True
     )
-    work_model = models.CharField(choices=WORK_MODELS, blank=True, null=True)
+    work_model = models.CharField(
+        max_length=100,
+        choices=WORK_MODELS,
+        blank=True,
+        null=True
+    )
     contract_type = MultiSelectField(
         choices=CONTRACT_TYPES,
         max_choices=len(CONTRACT_TYPES),
@@ -144,6 +149,7 @@ class RecruitRequirements(models.Model):
         null=True
     )
     english_skills = models.CharField(
+        max_length=100,
         choices=LEVEL_CHOICES,
         blank=True,
         null=True
@@ -161,6 +167,7 @@ class RecruitRequirements(models.Model):
         null=True
     )
     candidat_resume_form = models.CharField(
+        max_length=100,
         choices=RESUME_FORM,
         blank=True,
         null=True
@@ -172,15 +179,22 @@ class Application(models.Model):
     """Модель заявки."""
 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    title = models.CharField()
+    title = models.CharField(max_length=100,)
     profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
-    min_salary = models.IntegerField()
-    max_salary = models.IntegerField()
+    min_salary = models.IntegerField(
+        blank=False,
+        validators=[MinValueValidator(0)]
+    )
+    max_salary = models.IntegerField(
+        blank=False,
+        validators=[MinValueValidator(0)]
+    )
     number_of_employees = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(10)]
     )
     start_working = models.CharField(
+        max_length=100,
         choices=START_WORKING,
         blank=True,
         null=True
@@ -204,3 +218,6 @@ class Application(models.Model):
             raise ValidationError(
                 'Минимальная зарплата не может быть больше максимальной.'
             )
+
+    def __str__(self) -> str:
+        return self.title

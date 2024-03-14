@@ -7,4 +7,4 @@ class Payment(models.Model):
     """Тип оплаты."""
 
     payment_amount = models.BigIntegerField()
-    payment_type = models.CharField(choices=PAYMENT_TYPES)
+    payment_type = models.CharField(max_length=100, choices=PAYMENT_TYPES)
