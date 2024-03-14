@@ -1,8 +1,8 @@
 from django.db import models
 
 
-class City(models.Model):
-    """Город."""
+class Citizenship(models.Model):
+    """Гражданство."""
 
     name = models.CharField(max_length=100)
 

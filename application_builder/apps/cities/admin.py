@@ -1,12 +1,7 @@
 from django.contrib import admin
-from .models import City, Citizenship
+from .models import City
 
 
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name',)
-
-
-@admin.register(Citizenship)
-class CitizenshipAdmin(admin.ModelAdmin):
     list_display = ('id', 'name',)
