@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'apps.cities.apps.CitiesConfig',
     'apps.languages.apps.LanguagesConfig',
     'apps.users.apps.UsersConfig',
+    'apps.citizenships.apps.CitizenshipsConfig',
+    'apps.industries.apps.IndustriesConfig',
 ]
 
 MIDDLEWARE = [
