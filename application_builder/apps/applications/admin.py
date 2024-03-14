@@ -1,11 +1,18 @@
 from django.contrib import admin
-from .models import Application, JobInfo, CandidateRequirements
+
+from .models import (
+    Application,
+    JobInfo,
+    CandidateRequirements,
+    RecruitRequirements,
+)
 
 
 @admin.register(Application)
 class ApplicationAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'user',
         'title',
         'profession',
         'city',
@@ -13,6 +20,11 @@ class ApplicationAdmin(admin.ModelAdmin):
         'max_salary',
         'number_of_employees',
         'start_working',
+        'number_of_recruiters',
+        'job_info',
+        'created_at',
+        'candidate_requirements',
+        'recruit_requirements',
     )
 
 
@@ -59,4 +71,24 @@ class JobInfoAdmin(admin.ModelAdmin):
         'work_model',
         'contract_type',
         'working_conditions',
+        'description',
+    )
+
+
+@admin.register(RecruitRequirements)
+class RecruitRequirementsAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'city',
+        'rating',
+        'completed_tickets',
+        'experience',
+        'responding_time',
+        'completing_tickets_speed',
+        'industry',
+        'english_skills',
+        'recruiter_responsibilities',
+        'description',
+        'candidat_resume_form',
+        'stop_list',
     )

@@ -165,6 +165,7 @@ class RecruitRequirements(models.Model):
         blank=True,
         null=True
     )
+    stop_list = models.TextField(max_length=MAX_LENGTH, blank=True, null=True)
 
 
 class Application(models.Model):
