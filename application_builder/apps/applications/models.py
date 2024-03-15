@@ -172,8 +172,8 @@ class Application(models.Model):
 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     title = models.CharField()
-    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)  # Может on_delete=models.SET_NULL? Иначе при удалении профессии удалится заявка.
-    city = models.ForeignKey(City, on_delete=models.CASCADE)  # Аналогично.
+    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)  
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
     min_salary = models.IntegerField()
     max_salary = models.IntegerField()
     number_of_employees = models.IntegerField(
@@ -181,13 +181,13 @@ class Application(models.Model):
     )
     start_working = models.CharField(
         choices=START_WORKING,
-        blank=True,  # Получается этот параметр можно не передавать в форме...Так задумано?
+        blank=True,
         null=True
     )
     number_of_recruiters = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(3)]
     )
-    job_info = models.OneToOneField(JobInfo, on_delete=models.CASCADE)  # Заявка удаляется при удалении этого блока?
+    job_info = models.OneToOneField(JobInfo, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     candidate_requirements = models.OneToOneField(
         CandidateRequirements,
@@ -195,7 +195,7 @@ class Application(models.Model):
     )
     recruit_requirements = models.OneToOneField(
         RecruitRequirements,
-        on_delete=models.CASCADE   # Заявка удаляется при удалении этого блока?
+        on_delete=models.CASCADE
     )
 
     def clean(self):
