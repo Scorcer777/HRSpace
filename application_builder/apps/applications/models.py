@@ -161,7 +161,7 @@ class RecruitRequirements(models.Model):
         blank=True,
         null=True
     )
-    description = description = models.TextField(
+    description = models.TextField(
         max_length=MAX_LENGTH,
         blank=True,
         null=True

@@ -1,0 +1,38 @@
+[
+    {
+       "model": "languages.language",
+       "fields": {
+       "name": "Русский"
+       }
+    },
+    {
+        "model": "languages.language",
+        "fields": {
+        "name": "Английский"
+        }
+    },
+    {
+        "model": "languages.language",
+        "fields": {
+        "name": "Французский"
+        }
+     },
+     {
+        "model": "languages.language",
+        "fields": {
+        "name": "Немецкий"
+        }
+     },
+     {
+        "model": "languages.language",
+        "fields": {
+        "name": "Китайский"
+        }
+     },
+     {
+        "model": "languages.language",
+        "fields": {
+        "name": "Японский"
+        }
+     }
+]

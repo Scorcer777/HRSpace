@@ -1,0 +1,68 @@
+[
+    {
+       "model": "industries.industry",
+       "fields": {
+       "title": "Продажи, обслуживание клиентов"
+       }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Производство, сервисное обслуживание"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Медицина, фармацевтика"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Наука, образование"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Сельское хозяйство"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Информационные технологии"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Искусство, развлечения, массмедиа"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Маркетинг, реклама, PR"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Закупки"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Финансы, бухгалтерия"
+        }
+    },
+    {
+        "model": "industries.industry",
+        "fields": {
+        "title": "Другое"
+        }
+    }
+]
