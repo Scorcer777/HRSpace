@@ -1,0 +1,44 @@
+[
+    {
+       "model": "citizenships.citizenship",
+       "fields": {
+       "name": "Российская Федерация"
+       }
+    },
+    {
+        "model": "citizenships.citizenship",
+        "fields": {
+        "name": "Узбекистан"
+        }
+    },
+    {
+        "model": "citizenships.citizenship",
+        "fields": {
+        "name": "Казахстан"
+        }
+    },
+    {
+        "model": "citizenships.citizenship",
+        "fields": {
+        "name": "Грузия"
+        }
+    },
+    {
+        "model": "citizenships.citizenship",
+        "fields": {
+        "name": "Таджикистан"
+        }
+    },
+    {
+        "model": "citizenships.citizenship",
+        "fields": {
+        "name": "Армения"
+        }
+    },
+    {
+        "model": "citizenships.citizenship",
+        "fields": {
+        "name": "Азербайджан"
+        }
+    }
+]

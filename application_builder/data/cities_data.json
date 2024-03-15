@@ -1,0 +1,80 @@
+[
+    {
+       "model": "cities.city",
+       "fields": {
+       "name": "Москва"
+       }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Санкт-Петербург"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Новосибирск"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Екатеринбург"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Казань"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Нижний Новгород"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Челябинск"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Красноярск"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Самара"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Уфа"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Ростов-на-Дону"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Омск"
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Краснодар"
+        }
+    }
+]

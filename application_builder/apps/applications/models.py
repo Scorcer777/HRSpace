@@ -155,7 +155,7 @@ class RecruitRequirements(models.Model):
         blank=True,
         null=True
     )
-    description = description = models.TextField(
+    description = models.TextField(
         max_length=MAX_LENGTH,
         blank=True,
         null=True
@@ -172,8 +172,8 @@ class Application(models.Model):
 
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     title = models.CharField()
-    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)  # Может on_delete=models.SET_NULL? Иначе при удалении профессии удалится заявка.
+    city = models.ForeignKey(City, on_delete=models.CASCADE)  # Аналогично.
     min_salary = models.IntegerField()
     max_salary = models.IntegerField()
     number_of_employees = models.IntegerField(
@@ -181,13 +181,13 @@ class Application(models.Model):
     )
     start_working = models.CharField(
         choices=START_WORKING,
-        blank=True,
+        blank=True,  # Получается этот параметр можно не передавать в форме...Так задумано?
         null=True
     )
     number_of_recruiters = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(3)]
     )
-    job_info = models.OneToOneField(JobInfo, on_delete=models.CASCADE)
+    job_info = models.OneToOneField(JobInfo, on_delete=models.CASCADE)  # Заявка удаляется при удалении этого блока?
     created_at = models.DateTimeField(auto_now_add=True)
     candidate_requirements = models.OneToOneField(
         CandidateRequirements,
@@ -195,7 +195,7 @@ class Application(models.Model):
     )
     recruit_requirements = models.OneToOneField(
         RecruitRequirements,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE   # Заявка удаляется при удалении этого блока?
     )
 
     def clean(self):
