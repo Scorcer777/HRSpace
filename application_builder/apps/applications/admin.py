@@ -6,6 +6,7 @@ from .models import (
     CandidateRequirements,
     RecruitRequirements,
 )
+from utils import get_application_id
 
 
 @admin.register(Application)
@@ -21,10 +22,7 @@ class ApplicationAdmin(admin.ModelAdmin):
         'number_of_employees',
         'start_working',
         'number_of_recruiters',
-        'job_info',
         'created_at',
-        'candidate_requirements',
-        'recruit_requirements',
     )
 
 
@@ -32,6 +30,7 @@ class ApplicationAdmin(admin.ModelAdmin):
 class CandidateRequirementsAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'application_id',
         'education',
         'experience',
         'get_language_skills',
@@ -69,6 +68,8 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
 
     get_core_skills.short_description = 'Core Skills'
 
+    application_id = get_application_id
+
 
 @admin.register(JobInfo)
 class JobInfoAdmin(admin.ModelAdmin):
@@ -80,7 +81,10 @@ class JobInfoAdmin(admin.ModelAdmin):
         'contract_type',
         'working_conditions',
         'description',
+        'application_id',
     )
+
+    application_id = get_application_id
 
 
 @admin.register(RecruitRequirements)
@@ -88,15 +92,13 @@ class RecruitRequirementsAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'city',
-        'rating',
-        'completed_tickets',
-        'experience',
-        'responding_time',
-        'completing_tickets_speed',
         'industry',
         'english_skills',
         'recruiter_responsibilities',
         'description',
-        'candidat_resume_form',
+        'candidate_resume_form',
         'stop_list',
+        'application_id',
     )
+
+    application_id = get_application_id

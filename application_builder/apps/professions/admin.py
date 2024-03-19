@@ -5,7 +5,7 @@ from .models import Profession, Skill, ProfessionSkill
 
 @admin.register(Profession)
 class ProfessionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title',)
+    list_display = ('id', 'title', 'industry',)
 
 
 @admin.register(Skill)
