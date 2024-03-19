@@ -91,7 +91,6 @@ class JobInfoAdmin(admin.ModelAdmin):
 class RecruitRequirementsAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        'city',
         'industry',
         'english_skills',
         'recruiter_responsibilities',
