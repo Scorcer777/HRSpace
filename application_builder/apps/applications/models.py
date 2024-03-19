@@ -14,10 +14,6 @@ from . import (
     EDUCATION_TYPES,
     EXPERIENCES,
     DRIVING_SKILLS,
-    RATING_GRADES,
-    NUMBER_OF_COMPLETED_TICKETS,
-    RESPONDING_TIME_MINUTES,
-    COMPLETING_TICKETS_RATE,
     RECRUITER_RESPONSIBILITIES,
     RESUME_FORM,
 )
@@ -30,11 +26,61 @@ from apps.languages import LEVEL_CHOICES
 from apps.industries.models import Industry
 
 
+class Application(models.Model):
+    """Модель заявки."""
+
+    user = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='applications'
+    )
+    title = models.CharField(max_length=100,)
+    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    min_salary = models.IntegerField(
+        blank=False,
+        validators=[MinValueValidator(0)]
+    )
+    max_salary = models.IntegerField(
+        blank=False,
+        validators=[MinValueValidator(0)]
+    )
+    number_of_employees = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(10)]
+    )
+    start_working = models.CharField(
+        max_length=100,
+        choices=START_WORKING,
+        blank=True,
+        null=True
+    )
+    number_of_recruiters = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(3)]
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def clean(self):
+        if self.min_salary > self.max_salary:
+            raise ValidationError(
+                'Минимальная зарплата не может быть больше максимальной.'
+            )
+
+    def __str__(self) -> str:
+        return self.title
+
+
 class JobInfo(models.Model):
     """Информация об условиях труда."""
 
-    employment_type = models.CharField(
+    application = models.OneToOneField(
+        Application,
+        on_delete=models.CASCADE,
+        related_name='job_infos'
+    )
+    employment_type = MultiSelectField(
         choices=EMPLOYMENT_TYPES,
+        max_choices=len(EMPLOYMENT_TYPES),
+        max_length=MAX_LENGTH,
         blank=True,
         null=True
     )
@@ -45,7 +91,13 @@ class JobInfo(models.Model):
         blank=True,
         null=True
     )
-    work_model = models.CharField(choices=WORK_MODELS, blank=True, null=True)
+    work_model = MultiSelectField(
+        choices=WORK_MODELS,
+        max_choices=len(WORK_MODELS),
+        max_length=MAX_LENGTH,
+        blank=True,
+        null=True
+    )
     contract_type = MultiSelectField(
         choices=CONTRACT_TYPES,
         max_choices=len(CONTRACT_TYPES),
@@ -70,6 +122,11 @@ class JobInfo(models.Model):
 class CandidateRequirements(models.Model):
     """Требования к соискателю."""
 
+    application = models.OneToOneField(
+        Application,
+        on_delete=models.CASCADE,
+        related_name='candidate_requirements'
+    )
     education = MultiSelectField(
         choices=EDUCATION_TYPES,
         max_choices=len(EDUCATION_TYPES),
@@ -106,44 +163,25 @@ class CandidateRequirements(models.Model):
         ProfessionSkill,
         blank=True
     )
+    requirements_description = models.TextField(blank=True, null=True)
 
 
 class RecruitRequirements(models.Model):
     """Требования к рекрутеру."""
 
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
-    rating = MultiSelectField(
-        choices=RATING_GRADES,
-        max_choices=len(RATING_GRADES),
-        max_length=MAX_LENGTH
-    )
-    completed_tickets = MultiSelectField(
-        choices=NUMBER_OF_COMPLETED_TICKETS,
-        max_choices=len(NUMBER_OF_COMPLETED_TICKETS),
-        max_length=MAX_LENGTH
-    )
-    experience = MultiSelectField(
-        choices=EXPERIENCES,
-        max_choices=len(EXPERIENCES),
-        max_length=MAX_LENGTH
-    )
-    responding_time = MultiSelectField(
-        choices=RESPONDING_TIME_MINUTES,
-        max_choices=len(RESPONDING_TIME_MINUTES),
-        max_length=MAX_LENGTH
-    )
-    completing_tickets_speed = MultiSelectField(
-        choices=COMPLETING_TICKETS_RATE,
-        max_choices=len(COMPLETING_TICKETS_RATE),
-        max_length=MAX_LENGTH
+    application = models.OneToOneField(
+        Application,
+        on_delete=models.CASCADE,
+        related_name='recruit_requirements'
     )
     industry = models.ForeignKey(
         Industry,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True
     )
     english_skills = models.CharField(
+        max_length=100,
         choices=LEVEL_CHOICES,
         blank=True,
         null=True
@@ -155,51 +193,15 @@ class RecruitRequirements(models.Model):
         blank=True,
         null=True
     )
-    description = description = models.TextField(
+    description = models.TextField(
         max_length=MAX_LENGTH,
         blank=True,
         null=True
     )
-    candidat_resume_form = models.CharField(
+    candidate_resume_form = models.CharField(
+        max_length=100,
         choices=RESUME_FORM,
         blank=True,
         null=True
     )
-
-
-class Application(models.Model):
-    """Модель заявки."""
-
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    title = models.CharField()
-    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
-    min_salary = models.IntegerField()
-    max_salary = models.IntegerField()
-    number_of_employees = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(10)]
-    )
-    start_working = models.CharField(
-        choices=START_WORKING,
-        blank=True,
-        null=True
-    )
-    number_of_recruiters = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(3)]
-    )
-    job_info = models.OneToOneField(JobInfo, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    candidate_requirements = models.OneToOneField(
-        CandidateRequirements,
-        on_delete=models.CASCADE
-    )
-    recruit_requirements = models.OneToOneField(
-        RecruitRequirements,
-        on_delete=models.CASCADE
-    )
-
-    def clean(self):
-        if self.min_salary > self.max_salary:
-            raise ValidationError(
-                'Минимальная зарплата не может быть больше максимальной.'
-            )
+    stop_list = models.TextField(max_length=MAX_LENGTH, blank=True, null=True)

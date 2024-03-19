@@ -1,0 +1,32 @@
+[
+    {
+       "model": "professions.profession",
+       "fields": {
+       "title": "Графический дизайнер"
+       }
+    },
+    {
+        "model": "professions.profession",
+        "fields": {
+        "title": "Дизайнер интерьера"
+        }
+     },
+     {
+        "model": "professions.profession",
+        "fields": {
+        "title": "Менеджер по продажам"
+        }
+     },
+     {
+        "model": "professions.profession",
+        "fields": {
+        "title": "Менеджер по закупкам"
+        }
+     },
+     {
+        "model": "professions.profession",
+        "fields": {
+        "title": "Финансовый аналитик"
+        }
+     }
+]

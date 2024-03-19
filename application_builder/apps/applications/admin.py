@@ -1,11 +1,19 @@
 from django.contrib import admin
-from .models import Application, JobInfo, CandidateRequirements
+
+from .models import (
+    Application,
+    JobInfo,
+    CandidateRequirements,
+    RecruitRequirements,
+)
+from utils import get_application_id
 
 
 @admin.register(Application)
 class ApplicationAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'user',
         'title',
         'profession',
         'city',
@@ -13,6 +21,8 @@ class ApplicationAdmin(admin.ModelAdmin):
         'max_salary',
         'number_of_employees',
         'start_working',
+        'number_of_recruiters',
+        'created_at',
     )
 
 
@@ -20,6 +30,7 @@ class ApplicationAdmin(admin.ModelAdmin):
 class CandidateRequirementsAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'application_id',
         'education',
         'experience',
         'get_language_skills',
@@ -32,7 +43,10 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
 
     def get_language_skills(self, obj):
         return ', '.join(
-            language.name for language in obj.language_skills.all()
+            [
+                language_proficiency.language.name
+                for language_proficiency  in obj.language_skills.all()
+            ]
         )
 
     get_language_skills.short_description = 'Language Skills'
@@ -46,8 +60,15 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
 
     def get_core_skills(self, obj):
         return ', '.join(
-            [skill.name for skill in obj.core_skills.all()]
+            [
+                profession_skill.skill.title
+                for profession_skill in obj.core_skills.all()
+            ]
         )
+
+    get_core_skills.short_description = 'Core Skills'
+
+    application_id = get_application_id
 
 
 @admin.register(JobInfo)
@@ -59,4 +80,25 @@ class JobInfoAdmin(admin.ModelAdmin):
         'work_model',
         'contract_type',
         'working_conditions',
+        'description',
+        'application_id',
     )
+
+    application_id = get_application_id
+
+
+@admin.register(RecruitRequirements)
+class RecruitRequirementsAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'city',
+        'industry',
+        'english_skills',
+        'recruiter_responsibilities',
+        'description',
+        'candidate_resume_form',
+        'stop_list',
+        'application_id',
+    )
+
+    application_id = get_application_id
