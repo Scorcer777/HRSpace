@@ -6,7 +6,6 @@ from .models import (
     CandidateRequirements,
     RecruitRequirements,
 )
-from utils import get_application_id
 
 
 @admin.register(Application)
@@ -30,14 +29,14 @@ class ApplicationAdmin(admin.ModelAdmin):
 class CandidateRequirementsAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        'application_id',
+        'application',
         'education',
         'experience',
         'get_language_skills',
         'driving_skills',
         'has_medical_sertificate',
         'has_photo',
-        'get_citizenship',
+        'get_citizenships',
         'get_core_skills',
     )
 
@@ -51,12 +50,12 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
 
     get_language_skills.short_description = 'Language Skills'
 
-    def get_citizenship(self, obj):
+    def get_citizenships(self, obj):
         return ', '.join(
             [citizenship.name for citizenship in obj.citizenship.all()]
         )
 
-    get_citizenship.short_description = 'Citizenship'
+    get_citizenships.short_description = 'Citizenship'
 
     def get_core_skills(self, obj):
         return ', '.join(
@@ -67,8 +66,6 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
         )
 
     get_core_skills.short_description = 'Core Skills'
-
-    application_id = get_application_id
 
 
 @admin.register(JobInfo)
@@ -81,10 +78,8 @@ class JobInfoAdmin(admin.ModelAdmin):
         'contract_type',
         'working_conditions',
         'description',
-        'application_id',
+        'application',
     )
-
-    application_id = get_application_id
 
 
 @admin.register(RecruitRequirements)
@@ -97,7 +92,5 @@ class RecruitRequirementsAdmin(admin.ModelAdmin):
         'description',
         'candidate_resume_form',
         'stop_list',
-        'application_id',
+        'application',
     )
-
-    application_id = get_application_id
