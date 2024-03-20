@@ -174,7 +174,6 @@ class RecruitRequirements(models.Model):
         on_delete=models.CASCADE,
         related_name='recruit_requirements'
     )
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
     industry = models.ForeignKey(
         Industry,
         on_delete=models.SET_NULL,
