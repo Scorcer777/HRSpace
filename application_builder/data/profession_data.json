@@ -2,31 +2,36 @@
     {
        "model": "professions.profession",
        "fields": {
-       "title": "Графический дизайнер"
+       "title": "Графический дизайнер",
+       "industry": 7
        }
     },
     {
         "model": "professions.profession",
         "fields": {
-        "title": "Дизайнер интерьера"
+        "title": "Дизайнер интерьера",
+        "industry": 7
         }
      },
      {
         "model": "professions.profession",
         "fields": {
-        "title": "Менеджер по продажам"
+        "title": "Менеджер по продажам",
+        "industry": 11
         }
      },
      {
         "model": "professions.profession",
         "fields": {
-        "title": "Менеджер по закупкам"
+        "title": "Менеджер по закупкам",
+        "industry": 9
         }
      },
      {
         "model": "professions.profession",
         "fields": {
-        "title": "Финансовый аналитик"
+        "title": "Финансовый аналитик",
+        "industry": 11
         }
      }
 ]
