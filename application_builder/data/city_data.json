@@ -1,0 +1,37 @@
+[
+    {
+       "model": "cities.city",
+       "fields": {
+       "name": "Москва",
+       "region": 1
+       }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Санкт-Петербург",
+        "region": 2
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Новосибирск",
+        "region": 3
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Екатеринбург",
+        "region": 4
+        }
+    },
+    {
+        "model": "cities.city",
+        "fields": {
+        "name": "Казань",
+        "region": 5
+        }
+    }
+]

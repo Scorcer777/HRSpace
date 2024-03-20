@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 from . import (
     MAX_LENGTH,
     START_WORKING,
-    EMPLOYMENT_TYPES, 
+    EMPLOYMENT_TYPES,
     SCHEDULE_TYPES,
     WORK_MODELS,
     CONTRACT_TYPES,
@@ -152,7 +152,7 @@ class CandidateRequirements(models.Model):
         blank=True,
         null=True
     )
-    has_medical_sertificate = models.BooleanField(
+    has_medical_certificate = models.BooleanField(
         default=False,
         blank=True,
         null=True
