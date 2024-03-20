@@ -1,10 +1,10 @@
 from rest_framework import serializers
 
-from apps.industries.models import Industry
+from apps.citizenships.models import Citizenship
 
 
-class IndustrySerializer(serializers.ModelSerializer):
+class CitizenshipSerializer(serializers.ModelSerializer):
     """Сериализация модели - отрасль."""
     class Meta:
         fields = '__all__'
-        model = Industry
+        model = Citizenship
