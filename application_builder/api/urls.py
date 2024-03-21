@@ -21,9 +21,11 @@ router.register('cities', CityViewSet, basename='city')
 
 
 urlpatterns = [
-    path('auth/login/', obtain_auth_token, name='login'),
-    path('applications/create/',
-         ApplicationCreateView.as_view(),
-         name='applications-create'),
+    path(f'{VERSION}/auth/login/', obtain_auth_token, name='login'),
+    path(
+        f'{VERSION}/applications/create/',
+        ApplicationCreateView.as_view(),
+        name='applications-create'
+    ),
     path(f'{VERSION}/', include(router.urls)),
 ]
