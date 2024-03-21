@@ -12,5 +12,5 @@ class CitizenshipViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CitizenshipSerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
-    search_fields = ('@name',)
+    search_fields = ('name',)
     ordering_fields = ('name',)

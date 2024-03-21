@@ -12,5 +12,5 @@ class ProfessionViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ProfessionSerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
-    search_fields = ('@title',)
+    search_fields = ('title',)
     ordering_fields = ('title',)

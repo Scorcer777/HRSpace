@@ -12,5 +12,5 @@ class CityViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CitySerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
-    search_fields = ('@name',)
+    search_fields = ('name',)
     ordering_fields = ('name',)
