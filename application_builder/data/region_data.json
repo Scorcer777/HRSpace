@@ -1,0 +1,32 @@
+[
+    {
+       "model": "cities.region",
+       "fields": {
+       "name": "Московская область"
+       }
+    },
+    {
+        "model": "cities.region",
+        "fields": {
+        "name": "Ленинградская область"
+        }
+    },
+    {
+        "model": "cities.region",
+        "fields": {
+        "name": "Сибирского федерального округа"
+        }
+    },
+    {
+        "model": "cities.region",
+        "fields": {
+        "name": "Свердловская область"
+        }
+     },
+     {
+        "model": "cities.region",
+        "fields": {
+        "name": "Республика Татарстан"
+        }
+     }
+]

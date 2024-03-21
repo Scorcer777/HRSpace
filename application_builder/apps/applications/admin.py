@@ -34,7 +34,6 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
         'experience',
         'get_language_skills',
         'driving_skills',
-        'has_medical_sertificate',
         'has_photo',
         'get_citizenships',
         'coreskills_and_responsibilities',
@@ -44,7 +43,7 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
         return ', '.join(
             [
                 language_proficiency.language.name
-                for language_proficiency  in obj.language_skills.all()
+                for language_proficiency in obj.language_skills.all()
             ]
         )
 
