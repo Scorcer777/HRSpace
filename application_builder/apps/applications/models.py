@@ -17,7 +17,7 @@ from . import (
     RECRUITER_RESPONSIBILITIES,
     RESUME_FORM,
 )
-from apps.professions.models import Profession, ProfessionSkill
+from apps.professions.models import Profession
 from apps.cities.models import City
 from apps.citizenships.models import Citizenship
 from apps.languages.models import LanguageProficiency
