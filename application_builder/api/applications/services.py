@@ -1,47 +1,56 @@
-"""Файл для обработки входящих данных."""
+"""Модуль для обработки данных."""
+
+from django.db import transaction
 
 from apps.applications.models import (JobInfo, CandidateRequirements,
                                       RecruitRequirements, Application)
+from apps.users.models import UserT
 
 
 class ApplicationService:
-    @staticmethod
-    def create_application(self, validated_data, current_user):
+    def __init__(self, validated_data: dict):
+        self.validated_data = validated_data
+
+    @transaction.atomic
+    def save(self, current_user: UserT) -> Application:
+        application = self.create_application(current_user)
+        self.create_job_info(application)
+        self.create_candidate_requirements(application)
+        self.create_recruit_requirements(application)
+        return application
+
+    def create_application(self, current_user) -> Application:
         application = Application.objects.create(
             user=current_user,
-            **validated_data['application']
+            **self.validated_data['application']
         )
         return application
 
-    def create_job_info(self, validated_data, application):
+    def create_job_info(self, application):
         job_info = JobInfo.objects.create(
             application=application,
-            **validated_data['job_info']
+            **self.validated_data['job_info']
         )
         return job_info
 
-    def create_candidate_requirements(self, validated_data, application):
-        language_skills = validated_data[
+    def create_candidate_requirements(self, application):
+        language_skills = self.validated_data[
             'candidate_requirements'
         ].pop('language_skills')
-        citizenship = validated_data[
+        citizenship = self.validated_data[
             'candidate_requirements'
         ].pop('citizenship')
-        core_skills = validated_data[
-            'candidate_requirements'
-        ].pop('core_skills')
         candidate_requirements = CandidateRequirements.objects.create(
             application=application,
-            **validated_data['candidate_requirements']
+            **self.validated_data['candidate_requirements']
         )
         candidate_requirements.language_skills.set(language_skills)
         candidate_requirements.citizenship.set(citizenship)
-        candidate_requirements.core_skills.set(core_skills)
         return candidate_requirements
 
-    def create_recruit_requirements(self, validated_data, application):
+    def create_recruit_requirements(self, application):
         recruit_requirements = RecruitRequirements.objects.create(
             application=application,
-            **validated_data['recruiter_requirements']
+            **self.validated_data['recruiter_requirements']
         )
         return recruit_requirements
