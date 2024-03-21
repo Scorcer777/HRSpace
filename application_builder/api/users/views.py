@@ -1,5 +1,5 @@
 from rest_framework.authtoken.models import Token
-from rest_framework.views import APIView
+from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -7,10 +7,11 @@ from .serializers import LoginSerializer
 from apps.users.models import CustomUser
 
 
-class CustomAuthToken(APIView):
+class CustomAuthToken(GenericAPIView):
+    serializer_class = LoginSerializer
 
     def post(self, request):
-        serializer = LoginSerializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         email = serializer.validated_data['email']

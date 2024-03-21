@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from django.db import transaction
 
 from apps.applications.models import (JobInfo, CandidateRequirements,
                                       RecruitRequirements, Application)
@@ -34,31 +33,21 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
 class JobInfoCreateSerializer(serializers.ModelSerializer):
     """Сериализатор для валидации данных раздела условий труда."""
     employment_type = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=EMPLOYMENT_TYPES,
         required=False
     )
     schedule = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=SCHEDULE_TYPES,
         required=False
     )
     work_model = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=WORK_MODELS,
         required=False)
     contract_type = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=CONTRACT_TYPES,
         required=False
     )
     working_conditions = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=WORKING_CONDITIONS,
         required=False
     )
@@ -78,20 +67,14 @@ class JobInfoCreateSerializer(serializers.ModelSerializer):
 class CandidateRequirementsCreateSerializer(serializers.ModelSerializer):
     """Сериализатор для валидации  данных раздела требований к соискателю."""
     education = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=EDUCATION_TYPES,
         required=False
     )
     experience = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=EXPERIENCES,
         required=False
     )
     driving_skills = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=DRIVING_SKILLS,
         required=False
     )
@@ -106,22 +89,18 @@ class CandidateRequirementsCreateSerializer(serializers.ModelSerializer):
             'has_medical_certificate',
             'has_photo',
             'citizenship',
-            'core_skills',
-            'requirements_description'
+            'coreskills_and_responsibilities'
         )
 
 
 class RecruiterRequirementsCreateSerializer(serializers.ModelSerializer):
     """Сериализатор для создания разделя требований к рекрутеру."""
     recruiter_responsibilities = serializers.MultipleChoiceField(
-        allow_blank=True,
-        allow_null=True,
         choices=RECRUITER_RESPONSIBILITIES, required=False)
 
     class Meta:
         model = RecruitRequirements
         fields = (
-            'city',
             'industry',
             'english_skills',
             'recruiter_responsibilities',
@@ -138,20 +117,11 @@ class FullApplicationCreateSerializer(serializers.Serializer):
     candidate_requirements = CandidateRequirementsCreateSerializer()
     recruiter_requirements = RecruiterRequirementsCreateSerializer()
 
-    @transaction.atomic
     def save(self):
         current_user = self.context.get('request').user
-        service = ApplicationService()
-        # Creation of an Application object.
-        application = service.create_application(
-            self.validated_data, current_user
-        )
-        # Creation of an JobInfo object.
-        service.create_job_info(self.validated_data, application)
-        # Creation of a CandidateRequirements object.
-        service.create_candidate_requirements(self.validated_data, application)
-        # Creation of a RecruitRequirements object.
-        return self.instance
+        service = ApplicationService(validated_data=self.validated_data)
+        application = service.save(current_user)
+        return application
 
 
 class ApplicationReadSerializer(serializers.ModelSerializer):
