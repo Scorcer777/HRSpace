@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 
-from api.industries.views import IndustryViewSet
+#from api.industries.views import IndustryViewSet
 from api.applications.views import ApplicationCreateView
 from api.citizenships.views import CitizenshipViewSet
 from api.languages.views import LanguageViewSet

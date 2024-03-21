@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from api.users.views import obtain_auth_token
+from .yasg import urlpatterns as doc_urls
 
 
 urlpatterns = [
@@ -25,3 +26,5 @@ urlpatterns = [
     path('api/auth/login/', obtain_auth_token, name='login'),
     path('api/', include('api.urls')),
 ]
+
+urlpatterns += doc_urls

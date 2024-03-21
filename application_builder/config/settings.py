@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'multiselectfield',
+    'drf_yasg',
     # apps
     'apps.applications.apps.ApplicationsConfig',
     'apps.professions.apps.ProfessionsConfig',
