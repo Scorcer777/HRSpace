@@ -37,7 +37,7 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
         'has_medical_sertificate',
         'has_photo',
         'get_citizenships',
-        'get_core_skills',
+        'coreskills_and_responsibilities',
     )
 
     def get_language_skills(self, obj):
@@ -56,16 +56,6 @@ class CandidateRequirementsAdmin(admin.ModelAdmin):
         )
 
     get_citizenships.short_description = 'Citizenship'
-
-    def get_core_skills(self, obj):
-        return ', '.join(
-            [
-                profession_skill.skill.title
-                for profession_skill in obj.core_skills.all()
-            ]
-        )
-
-    get_core_skills.short_description = 'Core Skills'
 
 
 @admin.register(JobInfo)

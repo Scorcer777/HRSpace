@@ -159,11 +159,7 @@ class CandidateRequirements(models.Model):
     )
     has_photo = models.BooleanField(default=False, blank=True, null=True)
     citizenship = models.ManyToManyField(Citizenship, blank=True)
-    core_skills = models.ManyToManyField(
-        ProfessionSkill,
-        blank=True
-    )
-    requirements_description = models.TextField(blank=True, null=True)
+    coreskills_and_responsibilities = models.TextField(blank=True, null=True)
 
 
 class RecruitRequirements(models.Model):
