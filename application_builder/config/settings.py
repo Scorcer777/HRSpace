@@ -25,7 +25,10 @@ SECRET_KEY = os.path.join('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '80.249.149.201'
+]
 
 
 # Application definition
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'multiselectfield',
+    'drf_yasg',
     # apps
     'apps.applications.apps.ApplicationsConfig',
     'apps.professions.apps.ProfessionsConfig',
