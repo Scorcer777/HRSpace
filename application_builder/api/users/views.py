@@ -16,8 +16,30 @@ class CustomAuthToken(GenericAPIView):
     @swagger_auto_schema(
         request_body=LoginSerializer,
         responses={
-            201: openapi.Response(description='Successful login', schema=openapi.Schema(type='object', properties={'auth_token': openapi.Schema(type='string', description='JWT token for authentication')})),
-            401: openapi.Response(description='Unable to log in with provided credentials', schema=openapi.Schema(type='object', properties={'detail': openapi.Schema(type='string', description='Error message')}))
+            201: openapi.Response(
+                description='Successful login',
+                schema=openapi.Schema(
+                    type='object',
+                    properties={
+                        'auth_token': openapi.Schema(
+                            type='string',
+                            description='JWT token for authentication'
+                        )
+                    }
+                )
+            ),
+            401: openapi.Response(
+                description='Unable to log in with provided credentials',
+                schema=openapi.Schema(
+                    type='object',
+                    properties={
+                        'detail': openapi.Schema(
+                            type='string',
+                            description='Error message'
+                        )
+                    }
+                )
+            )
         }
     )
     def post(self, request):
