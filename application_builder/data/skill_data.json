@@ -158,19 +158,7 @@
     {
         "model": "professions.skill",
         "fields": {
-        "title": "выстаивание логистических цепочек"
-        }
-    },
-    {
-        "model": "professions.skill",
-        "fields": {
         "title": "управление персоналом"
-        }
-    },
-    {
-        "model": "professions.skill",
-        "fields": {
-        "title": "Анализ финансовых показателей"
         }
     },
     {

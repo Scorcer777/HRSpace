@@ -9,6 +9,7 @@ RUN pip install --upgrade pip
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
+COPY starter.sh .
 COPY . .
 
 #RUN chmod +x starter.sh

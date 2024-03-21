@@ -1,0 +1,170 @@
+[
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 1,
+        "proficiency_level": "Beginner"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 1,
+        "proficiency_level": "Intermediate"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 1,
+        "proficiency_level": "Fluent"
+        }
+    }, 
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 1,
+        "proficiency_level": "Advanced"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 2,
+        "proficiency_level": "Beginner"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 2,
+        "proficiency_level": "Intermediate"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 2,
+        "proficiency_level": "Fluent"
+        }
+    }, 
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 2,
+        "proficiency_level": "Advanced"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 3,
+        "proficiency_level": "Beginner"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 3,
+        "proficiency_level": "Intermediate"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 3,
+        "proficiency_level": "Fluent"
+        }
+    }, 
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 3,
+        "proficiency_level": "Advanced"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 4,
+        "proficiency_level": "Beginner"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 4,
+        "proficiency_level": "Intermediate"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 4,
+        "proficiency_level": "Fluent"
+        }
+    }, 
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 4,
+        "proficiency_level": "Advanced"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 5,
+        "proficiency_level": "Beginner"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 5,
+        "proficiency_level": "Intermediate"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 5,
+        "proficiency_level": "Fluent"
+        }
+    }, 
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 5,
+        "proficiency_level": "Advanced"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 6,
+        "proficiency_level": "Beginner"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 6,
+        "proficiency_level": "Intermediate"
+        }
+    },
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 6,
+        "proficiency_level": "Fluent"
+        }
+    }, 
+    {
+        "model": "languages.languageproficiency",
+        "fields": {
+        "language": 6,
+        "proficiency_level": "Advanced"
+        }
+    }
+]
