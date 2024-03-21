@@ -7,7 +7,7 @@ from .serializers import LanguageSerializer
 
 
 class LanguageViewSet(viewsets.ReadOnlyModelViewSet):
-    """Чтение списка/объекта язык."""
+    """Язык."""
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
     permission_classes = (IsAuthenticated,)
