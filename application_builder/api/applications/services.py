@@ -4,6 +4,7 @@ from django.db import transaction
 
 from apps.applications.models import (JobInfo, CandidateRequirements,
                                       RecruitRequirements, Application)
+from apps.payments.models import Payment
 from apps.users.models import UserT
 
 
@@ -17,6 +18,7 @@ class ApplicationService:
         self.create_job_info(application)
         self.create_candidate_requirements(application)
         self.create_recruit_requirements(application)
+        self.create_payments(application)
         return application
 
     def create_application(self, current_user) -> Application:
@@ -54,3 +56,10 @@ class ApplicationService:
             **self.validated_data['recruiter_requirements']
         )
         return recruit_requirements
+
+    def create_payments(self, application):
+        payments = Payment.objects.create(
+            application=application,
+            **self.validated_data['payments']
+        )
+        return payments
