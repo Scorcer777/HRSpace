@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'apps.industries.apps.IndustriesConfig',
     'apps.payments.apps.PaymentsConfig',
     'api',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
