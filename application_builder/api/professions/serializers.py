@@ -4,7 +4,9 @@ from apps.professions.models import Profession
 
 
 class ProfessionSerializer(serializers.ModelSerializer):
-    """Сериализация модели - Профессия."""
+    """
+    Сериализатор модели 'Профессия'.
+    """
     class Meta:
         fields = ('id', 'title')
         model = Profession

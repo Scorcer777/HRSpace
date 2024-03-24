@@ -4,7 +4,9 @@ from apps.languages.models import Language
 
 
 class LanguageSerializer(serializers.ModelSerializer):
-    """Сериализация модели - язык."""
+    """
+    Сериализатор модели 'Язык'.
+    """
     class Meta:
         fields = '__all__'
         model = Language

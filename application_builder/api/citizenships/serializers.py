@@ -4,7 +4,9 @@ from apps.citizenships.models import Citizenship
 
 
 class CitizenshipSerializer(serializers.ModelSerializer):
-    """Сериализация модели - отрасль."""
+    """
+    Сериализатор модели 'Гражданство'.
+    """
     class Meta:
         fields = '__all__'
         model = Citizenship
