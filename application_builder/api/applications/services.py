@@ -205,7 +205,7 @@ class ApplicationUpdateService:
         ].get('stop_list',
               instance.stop_list)
         instance.experience = self.validated_data[
-            'experience'
+            'recruiter_requirements'
         ].get('experience',
               instance.experience)
         instance.save()
