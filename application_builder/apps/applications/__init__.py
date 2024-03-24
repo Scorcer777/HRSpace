@@ -102,3 +102,8 @@ RESUME_FORM = [
         'с комментариями по кандидату'
     ),
 ]
+
+RECRUIT_EXPERIENCE = [
+    ('no_important', 'Неважно'),
+    ('important', 'Важно')
+]

@@ -16,6 +16,7 @@ from . import (
     DRIVING_SKILLS,
     RECRUITER_RESPONSIBILITIES,
     RESUME_FORM,
+    RECRUIT_EXPERIENCE,
 )
 from apps.professions.models import Profession
 from apps.cities.models import City
@@ -201,3 +202,9 @@ class RecruitRequirements(models.Model):
         null=True
     )
     stop_list = models.TextField(max_length=MAX_LENGTH, blank=True, null=True)
+    expirience = models.CharField(
+        max_length=100,
+        choices=RECRUIT_EXPERIENCE,
+        blank=True,
+        null=True
+    )
