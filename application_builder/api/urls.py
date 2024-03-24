@@ -2,7 +2,8 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 
-from api.applications.views import ApplicationCreateView
+from api.applications.views import (ApplicationListCreateView,
+                                    ApplicationRetrieveUpdateView)
 from api.citizenships.views import CitizenshipViewSet
 from api.languages.views import LanguageViewSet
 from api.professions.views import ProfessionViewSet
@@ -22,10 +23,11 @@ router.register('cities', CityViewSet, basename='city')
 
 urlpatterns = [
     path(f'{VERSION}/auth/login/', obtain_auth_token, name='login'),
-    path(
-        f'{VERSION}/applications/create/',
-        ApplicationCreateView.as_view(),
-        name='applications-create'
-    ),
+    path(f'{VERSION}/applications/',
+         ApplicationListCreateView.as_view(),
+         name='applications-list'),
+    path(f'{VERSION}/applications/<int:pk>/',
+         ApplicationRetrieveUpdateView.as_view(),
+         name='applications-detail'),
     path(f'{VERSION}/', include(router.urls)),
 ]

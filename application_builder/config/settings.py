@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'apps.industries.apps.IndustriesConfig',
     'apps.payments.apps.PaymentsConfig',
     'api',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -155,4 +156,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ]
 }
