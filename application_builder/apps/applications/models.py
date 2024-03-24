@@ -76,7 +76,7 @@ class JobInfo(models.Model):
     application = models.OneToOneField(
         Application,
         on_delete=models.CASCADE,
-        related_name='job_infos'
+        related_name='job_info'
     )
     employment_type = MultiSelectField(
         choices=EMPLOYMENT_TYPES,
