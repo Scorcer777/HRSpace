@@ -107,7 +107,8 @@ class RecruiterRequirementsCreateSerializer(serializers.ModelSerializer):
             'recruiter_responsibilities',
             'description',
             'candidate_resume_form',
-            'stop_list'
+            'stop_list',
+            'experience'
         )
 
 
@@ -192,7 +193,8 @@ class RecruiterRequirementsReadSerializer(serializers.ModelSerializer):
             'recruiter_responsibilities',
             'description',
             'candidate_resume_form',
-            'stop_list'
+            'stop_list',
+            'experience'
         )
 
 
