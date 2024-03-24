@@ -9,7 +9,7 @@ from apps.applications import (EMPLOYMENT_TYPES, WORK_MODELS,
                                WORKING_CONDITIONS, EDUCATION_TYPES,
                                EXPERIENCES, DRIVING_SKILLS,
                                RECRUITER_RESPONSIBILITIES)
-from .services import ApplicationService
+from .services import ApplicationCreateService, ApplicationUpdateService
 
 
 User = get_user_model()
@@ -29,11 +29,6 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
             'start_working',
             'number_of_recruiters',
         )
-
-    def update(self, instance, validated_data):
-        service = ApplicationService(validated_data=validated_data)
-        application = service.update_application(instance)
-        return application
 
 
 class JobInfoCreateSerializer(serializers.ModelSerializer):
@@ -69,11 +64,6 @@ class JobInfoCreateSerializer(serializers.ModelSerializer):
             'description'
         )
 
-    def update(self, instance, validated_data):
-        service = ApplicationService(validated_data=validated_data)
-        job_info = service.update_job_info(instance)
-        return job_info
-
 
 class CandidateRequirementsCreateSerializer(serializers.ModelSerializer):
     """Сериализатор для валидации  данных раздела требований к соискателю."""
@@ -103,13 +93,6 @@ class CandidateRequirementsCreateSerializer(serializers.ModelSerializer):
             'coreskills_and_responsibilities'
         )
 
-    def update(self, instance, validated_data):
-        service = ApplicationService(validated_data=validated_data)
-        candidate_requirements = service.update_candidate_requirements(
-            instance
-        )
-        return candidate_requirements
-
 
 class RecruiterRequirementsCreateSerializer(serializers.ModelSerializer):
     """Сериализатор для создания разделя требований к рекрутеру."""
@@ -127,13 +110,6 @@ class RecruiterRequirementsCreateSerializer(serializers.ModelSerializer):
             'stop_list'
         )
 
-    def update(self, instance, validated_data):
-        service = ApplicationService(validated_data=validated_data)
-        recruiter_requirements = service.update_recruiter_requirements(
-            instance
-        )
-        return recruiter_requirements
-
 
 class PaymentCreateSerializer(serializers.ModelSerializer):
     """Сериализатор для создания способа оплаты."""
@@ -143,11 +119,6 @@ class PaymentCreateSerializer(serializers.ModelSerializer):
             'payment_amount',
             'payment_type'
         )
-
-    def update(self, instance, validated_data):
-        service = ApplicationService(validated_data=validated_data)
-        payments = service.update_payments(instance)
-        return payments
 
 
 class FullApplicationCreateSerializer(serializers.Serializer):
@@ -159,10 +130,20 @@ class FullApplicationCreateSerializer(serializers.Serializer):
     payments = PaymentCreateSerializer()
 
     def save(self):
-        current_user = self.context.get('request').user
-        service = ApplicationService(validated_data=self.validated_data)
+        if self.instance:
+            return self.update(self.instance, self.validated_data)
+        return self.create(self.validated_data)
+
+    def create(self, validated_data: dict):
+        current_user = self.context['request'].user
+        service = ApplicationCreateService(validated_data=validated_data)
         application = service.save(current_user)
         return application
+
+    def update(self, instance: Application, validated_data: dict):
+        service = ApplicationUpdateService(validated_data=validated_data)
+        instance = service.update(instance)
+        return instance
 
 
 class JobInfoReadSerializer(serializers.ModelSerializer):
