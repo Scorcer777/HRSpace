@@ -204,7 +204,7 @@ class ApplicationUpdateService:
             'recruiter_requirements'
         ].get('stop_list',
               instance.stop_list)
-        instance.expirience = self.validated_data[
+        instance.experience = self.validated_data[
             'experience'
         ].get('experience',
               instance.experience)
