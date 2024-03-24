@@ -82,4 +82,5 @@ class RecruitRequirementsAdmin(admin.ModelAdmin):
         'candidate_resume_form',
         'stop_list',
         'application',
+        'experience',
     )
