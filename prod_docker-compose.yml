@@ -34,7 +34,7 @@ services:
 
   front:
     container_name: front
-    build: hrspace-frontend
+    build: ./hrspace-frontend
     depends_on:
       - web
 
