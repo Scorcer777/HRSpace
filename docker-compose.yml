@@ -7,11 +7,14 @@ services:
     container_name: db
     image: postgres:13
     ports:
-      - 54322:5432
+      - 5432:5432
     volumes:
       - pg_data_hr_space:/var/lib/postgresql/data/
     environment:
-      POSTGRES_DB: 'db'
+      POSTGRES_DB: ${POSTGRES_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_HOST_AUTH_METHOD: 'password'
     restart: always
     env_file:
       - .env
