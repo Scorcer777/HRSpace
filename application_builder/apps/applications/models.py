@@ -202,7 +202,7 @@ class RecruitRequirements(models.Model):
         null=True
     )
     stop_list = models.TextField(max_length=MAX_LENGTH, blank=True, null=True)
-    expirience = models.CharField(
+    experience = models.CharField(
         max_length=100,
         choices=RECRUIT_EXPERIENCE,
         blank=True,
