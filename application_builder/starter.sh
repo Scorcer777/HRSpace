@@ -18,5 +18,4 @@ python manage.py loaddata data/languageproficiency_data.json
 python manage.py loaddata data/profession_data.json
 python manage.py loaddata data/skill_data.json
 python manage.py loaddata data/professionskill_data.json
-#gunicorn -w 2 -b 0:8000 config.wsgi:application
 exec "$@"
