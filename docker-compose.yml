@@ -33,27 +33,6 @@ services:
     env_file:
       - .env
 
-  front:
-    container_name: front
-    build: /Dev/hrspace-frontend
-    depends_on:
-      - web
-
-  nginx:
-    container_name: nginx
-    build: nginx
-    ports:
-      - 8081:8081
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - static_value:/var/html/static/
-      - media_value:/var/html/media/
-    depends_on:
-      - web
-      - front
-    restart: always
-
-
 volumes:
   pg_data_hr_space:
   static_value:
