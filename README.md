@@ -60,16 +60,16 @@ docker compose up
 ## Базовые запросы к API c помощью POSTMAN(или аналогичной программы для работы с API):
 
 Все запросы доступны только авторизованным пользователям.
-1. GET http://localhost/api/v2/applications/ - получить список всех заявок.
-2. GET http://localhost/api/v2/applications/id(целое число)/ - получить заявку по id.
-3. GET http://localhost/api/v2/applications/?title=
+1. GET http://localhost:8000/api/v2/applications/ - получить список всех заявок.
+2. GET http://localhost:8000/api/v2/applications/id(целое число)/ - получить заявку по id.
+3. GET http://localhost:8000/api/v2/applications/?title=
 Показать список заявок, отфильтрованный с помощью query params,
 - Точное совпадение по email пользователя, создавшего заявку "user=";
 - Частичное совпадение по названию заявки "title=";
 - Точное совпадение по названию заявки "titleexact=";
 - Частичное совпадение по названию профессии "profession=";
 - Точное совпадение по названию города "city=";
-5. POST http://localhost/api/v2/applications/ - сохранить заявку в БД.
+5. POST http://localhost:8000/api/v2/applications/ - сохранить заявку в БД.
 В структуре передаваемых данных должны обязательно присутствовать все 5 верхнеуровневых ключей, как указано ниже.
 Также поля под ключами "application" и "payment" - ОБЯЗАТЕЛЬНЫЕ.
 Пример запроса (payload)
