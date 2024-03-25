@@ -129,5 +129,3 @@ docker compose up
 12. GET http://localhost:8000/api/v2/cities/ - просмотр всех доступных в базе городов.(для выбора в форме).
 
 
-
-
