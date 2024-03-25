@@ -36,7 +36,6 @@ services:
     env_file:
       - .env
 
-
 volumes:
   pg_data_hr_space:
   static_value:
