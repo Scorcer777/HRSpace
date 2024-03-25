@@ -6,6 +6,9 @@ Django==4.2.1,
 Django Rest Framework,
 Docker
 
+## Автоматическая документация Swagger. Работает после выполнения локального запуска проекта.
+http://localhost:8000/api/swagger/
+
 ## Ссылки на документацию использованных библиотек и фреймворков
 https://www.django-rest-framework.org/, 
 https://docs.djangoproject.com/en/5.0/, 
@@ -19,6 +22,7 @@ https://pypi.org/project/PyYAML/
 
 ## Ссылка на работающий проект:
 https://hrspace-frontend.vercel.app/
+документация http://80.249.149.201:8000/api/swagger/
 
 # Запуск проекта локально.
 ### 1. В VS Code(или аналогичной IDE) клонировать репозиторий командой в терминале Git Bash:
