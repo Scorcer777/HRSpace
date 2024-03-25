@@ -5,6 +5,18 @@ hr_space - это микросервис для создания работод�
 Django==4.2.1,
 Django Rest Framework,
 Docker
+
+## Ссылки на документацию использованных библиотек и фреймворков
+https://www.django-rest-framework.org/
+https://docs.djangoproject.com/en/5.0/
+https://pypi.org/project/django-rest-authtoken/
+https://pypi.org/project/django-filter/
+https://pypi.org/project/django-multiselectfield/
+https://pypi.org/project/django-cors-headers/
+https://pypi.org/project/uritemplate/
+https://pypi.org/project/PyYAML/
+
+
 ## Ссылка на работающий проект:
 https://hrspace-frontend.vercel.app/
 
