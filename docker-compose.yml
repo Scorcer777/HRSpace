@@ -12,6 +12,7 @@ services:
       - pg_data_hr_space:/var/lib/postgresql/data/
     environment:
       POSTGRES_DB: 'db'
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
     restart: always
     env_file:
       - .env
