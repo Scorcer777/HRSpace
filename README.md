@@ -2,22 +2,22 @@
 hr_space - это микросервис для создания работодателем заявки на поиск сотрудника с привлечением рекрутера. Frontend, с которым взаимодействует данный API, представляет собой страницу входа и страницы формы для заполнения полей заявки. Заявка состоит из обязательных и необязательных полей. При отправке запроса на сохранение данных с помощью Postman(или аналогичных программ) стоит придерживаться формата, указанного в данной инструкции. Предполагается, что микросервис будет интегрирован с системой аутентификации и другими сервисами hh.ru, поэтому в самом микрорвисе реализована возможность аутентификации под логином и паролем заранее созданного суперпользователя(без регистрации).
 
 ## Стек технологий
-Django==4.2.1,
-Django Rest Framework,
+Django==4.2.1,  
+Django Rest Framework,  
 Docker
 
 ## Автоматическая документация Swagger. Работает после выполнения локального запуска проекта.
 http://localhost:8000/api/swagger/
 
 ## Ссылки на документацию использованных библиотек и фреймворков
-https://www.django-rest-framework.org/, 
-https://docs.djangoproject.com/en/5.0/, 
-https://pypi.org/project/django-rest-authtoken/, 
-https://pypi.org/project/django-filter/, 
-https://pypi.org/project/django-multiselectfield/, 
-https://pypi.org/project/django-cors-headers/, 
-https://pypi.org/project/uritemplate/, 
-https://pypi.org/project/PyYAML/
+https://www.django-rest-framework.org/  
+https://docs.djangoproject.com/en/5.0/  
+https://pypi.org/project/django-rest-authtoken/   
+https://pypi.org/project/django-filter/  
+https://pypi.org/project/django-multiselectfield/  
+https://pypi.org/project/django-cors-headers/  
+https://pypi.org/project/uritemplate/  
+https://pypi.org/project/PyYAML/  
 
 
 ## Ссылка на работающий проект:
