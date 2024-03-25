@@ -1,0 +1,195 @@
+[
+    {
+       "model": "professions.skill",
+       "fields": {
+       "title": "креативность, изобретательность"
+       }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "художественный вкус"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "AdobePhotoshop"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "инициативность"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "объемно-пространственное мышление"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "коммуникабельность"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "внимательность"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "стрессоустойчивость"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "логическое мышление"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "мультизадачность"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "ответственность"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "настойчивость"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "продажи"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "деловые коммуникации"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "деловая переписка"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "ведение переговоров"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "работа с клиентами"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "CRM"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "критическое мышление"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "организаторские навыки"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "аналитический склад ума"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "английский язык"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "китайский язык"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "планирование"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "планирование запасов"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "выстаивание логистических цепочек"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "управление персоналом"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "Анализ финансовых показателей"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "финансовый аудит"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "экономический анализ"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "привлечение банковского финансирования"
+        }
+    },
+    {
+        "model": "professions.skill",
+        "fields": {
+        "title": "консолидация финансовой отчетности"
+        }
+    }
+]
+

@@ -1,0 +1,30 @@
+[
+    {
+        "model": "professions.professionskill",
+        "fields": {
+        "profession": 1,
+        "skill": 1
+        }
+    },
+    {
+        "model": "professions.professionskill",
+        "fields": {
+        "profession": 1,
+        "skill": 2
+        }
+    },
+    {
+        "model": "professions.professionskill",
+        "fields": {
+        "profession": 1,
+        "skill": 3
+        }
+    },
+    {
+        "model": "professions.professionskill",
+        "fields": {
+        "profession": 1,
+        "skill": 4
+        }
+    }
+]
