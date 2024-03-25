@@ -11,7 +11,11 @@ services:
     volumes:
       - pg_data_hr_space:/var/lib/postgresql/data/
     environment:
-      POSTGRES_DB: 'db'
+      POSTGRES_DB: ${POSTGRES_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_HOST_AUTH_METHOD: 'password'
+      
     restart: always
     env_file:
       - .env
