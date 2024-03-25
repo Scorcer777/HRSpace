@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY starter.sh .
 COPY . .
 
-#RUN chmod +x starter.sh
-#ENTRYPOINT [ "/app/starter.sh" ]
+RUN chmod +x starter.sh
+ENTRYPOINT [ "/app/starter.sh" ]
