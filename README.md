@@ -21,7 +21,7 @@ https://pypi.org/project/PyYAML/
 
 
 ## Ссылка на работающий проект:
-https://hrspace-frontend.vercel.app/
+https://hrspace-frontend.vercel.app/  
 документация http://80.249.149.201:8000/api/swagger/
 
 # Запуск проекта локально.
